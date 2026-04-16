@@ -1,0 +1,97 @@
+============================================================
+ATIVIDADE 3 — ANÁLISE E VALIDAÇÃO DO DATASET DE BIOMEDICINA
+Referência: Documento Técnico - Predição de Risco Clínico
+============================================================
+
+→ Dataset carregado: 2000 registros, 7 colunas.
+  Colunas: ['nome_paciente', 'idade', 'glicose', 'pressao_arterial', 'imc', 'colesterol', 'classificacao_risco']
+
+→ Distribuição de classificação_risco (conforme RF06_ML):
+   [Baixo] :  313 pacientes (15.7%)
+   [Médio] : 1167 pacientes (58.4%)
+   [Alto ] :  520 pacientes (26.0%)
+
+------------------------------------------------------------
+VALIDAÇÃO RF02: Zeros Impossíveis (glicose, pressao_arterial, imc)
+(Conforme especificação funcional RF02 — Processamento e Validação)
+------------------------------------------------------------
+
+  Coluna 'glicose':
+    → Registros com valor 0 (biologicamente impossível): 60
+    → Registros nulos / ausentes                       : 0
+    → Total de inconsistências detectadas              : 60
+    → Mediana calculada (sem os zeros/nulos): 108.67
+    ✅ Substituição pela mediana concluída com sucesso.
+
+  Coluna 'pressao_arterial':
+    → Registros com valor 0 (biologicamente impossível): 40
+    → Registros nulos / ausentes                       : 0
+    → Total de inconsistências detectadas              : 40
+    → Mediana calculada (sem os zeros/nulos): 122.44
+    ✅ Substituição pela mediana concluída com sucesso.
+
+  Coluna 'imc':
+    → Registros com valor 0 (biologicamente impossível): 40
+    → Registros nulos / ausentes                       : 0
+    → Total de inconsistências detectadas              : 40
+    → Mediana calculada (sem os zeros/nulos): 26.50
+    ✅ Substituição pela mediana concluída com sucesso.
+
+→ Verificação pós-tratamento (RF02 — consistência garantida):
+  'glicose': zeros=0 | nulos=0 ✅
+  'pressao_arterial': zeros=0 | nulos=0 ✅
+  'imc': zeros=0 | nulos=0 ✅
+
+------------------------------------------------------------
+ANÁLISE EXPLORATÓRIA: Top 10 Pacientes Críticos
+(Identificação de pacientes em situação de maior risco clínico)
+------------------------------------------------------------
+
+  🔴 Top 10 Pacientes com Maiores Níveis de GLICOSE (mg/dL):
+  (Referência clínica: ≥126 = faixa diabética conforme ADA Guidelines)
+nome_paciente  idade  glicose  pressao_arterial   imc  colesterol classificacao_risco
+       Mateus     42   225.05           130.340 17.05      254.18               Médio
+      Gabriel     54   212.34           129.050 30.29      164.30                Alto
+        Vitor     81   207.90           160.030 31.91      112.47                Alto
+      Gustavo     64   201.55            82.380 31.77      200.82                Alto
+        Lucas     73   200.30           124.980 26.58      231.95                Alto
+        Aline     21   196.02           153.000 36.42      156.40                Alto
+       Mateus     38   196.00           107.580 23.80      202.96               Médio
+      Tamires     22   192.74           122.435 24.27      159.39               Baixo
+        André     58   190.27           139.010 24.98      173.04               Médio
+     Henrique     25   188.95           166.450 19.64      108.60               Médio
+
+  🟠 Top 10 Pacientes com Maiores Níveis de COLESTEROL (mg/dL):
+  (Referência clínica: ≥240 = colesterol alto conforme AHA Guidelines)
+nome_paciente  idade  glicose  pressao_arterial   imc  colesterol classificacao_risco
+      Larissa     38   149.29            134.74 36.10      351.48                Alto
+       Mateus     97   155.94            121.68 30.97      343.54                Alto
+       Thiago     74    95.59            110.84 39.54      338.93                Alto
+      Natalia     32    64.43            157.30 30.44      338.66                Alto
+      Roberto     84   101.44             92.66 32.17      336.47                Alto
+         Igor     48    96.14            119.58 32.96      335.33               Médio
+        Diego     97   120.42             98.90 23.94      326.70               Médio
+       Rafael     88   112.51            126.51 20.34      326.50                Alto
+      Eduardo     48    86.32            114.17 18.05      324.53               Médio
+      Gustavo     96    95.75            111.45 27.33      323.62               Médio
+
+------------------------------------------------------------
+ESTATÍSTICAS DESCRITIVAS DO DATASET TRATADO:
+------------------------------------------------------------
+         idade  glicose  pressao_arterial      imc  colesterol
+count  2000.00  2000.00           2000.00  2000.00     2000.00
+mean     57.58   109.42            122.38    26.56      204.26
+std      23.29    29.61             21.12     5.97       47.12
+min      18.00    60.00             80.00    13.00      100.00
+25%      38.00    88.26            107.48    22.53      171.32
+50%      57.00   108.67            122.44    26.50      204.77
+75%      77.00   129.38            136.57    30.60      235.57
+max      99.00   225.05            200.00    47.83      351.48
+
+✅ Dataset tratado (RF02 aplicado) salvo como 'pacientes_tratados.csv'.
+   Pronto para uso no treinamento do modelo Random Forest (RF06_ML).
+
+============================================================
+ATIVIDADE 3 CONCLUÍDA!
+Todos os requisitos do Roteiro_Aula09 e do Documento Técnico atendidos.
+============================================================

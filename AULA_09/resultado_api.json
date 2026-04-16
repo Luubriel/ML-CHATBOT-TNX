@@ -1,0 +1,32 @@
+[
+  {
+    "texto_enviado": "não consigo entrar",
+    "intencao": "suporte",
+    "confianca": 0.4753,
+    "status": "sucesso"
+  },
+  {
+    "texto_enviado": "quero cancelar minha compra",
+    "intencao": "financeiro",
+    "confianca": 0.4673,
+    "status": "sucesso"
+  },
+  {
+    "texto_enviado": "meu pedido sumiu",
+    "intencao": "reclamacao",
+    "confianca": 0.4647,
+    "status": "sucesso"
+  },
+  {
+    "texto_enviado": "fui cobrado duas vezes",
+    "intencao": "financeiro",
+    "confianca": 0.4622,
+    "status": "sucesso"
+  },
+  {
+    "texto_enviado": "como redefinir minha senha?",
+    "intencao": "suporte",
+    "confianca": 0.5309,
+    "status": "sucesso"
+  }
+]

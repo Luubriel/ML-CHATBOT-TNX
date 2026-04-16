@@ -1,0 +1,102 @@
+⚠️  Dataset 'logs_chatbot_eda.csv' não encontrado. Gerando agora...
+============================================================
+ATIVIDADE 2 - EDA: Análise Exploratória de Dados
+============================================================
+
+--- Resumo Inicial dos Dados ---
+ticket_id               int64
+timestamp                 str
+canal                     str
+categoria_cliente         str
+intencao                  str
+tamanho_msg             int64
+tempo_resposta_seg    float64
+satisfacao            float64
+dtype: object
+
+Total de registros: 1000
+------------------------------
+
+============================================================
+EXERCÍCIO 1: LIMPEZA E PERFILAMENTO
+============================================================
+
+→ Clientes que não avaliaram o atendimento (nulos em 'satisfacao'):
+  Total: 50 registros (5.00% de dados faltantes)
+
+→ Valores nulos preenchidos com a mediana da categoria do cliente.
+  Nulos restantes: 0
+
+→ Outliers removidos (mensagens de Spam com tamanho > 626 chars):
+  Total removido: 9 linhas
+  Dataset limpo: 991 registros
+
+→ As 10 mensagens identificadas como Spam (outliers):
+ ticket_id  tamanho_msg       canal
+      1418         2535 App Android
+      1871         2280    WhatsApp
+      1223         1995         Web
+      1152         1770 App Android
+      1261         1680     App iOS
+      1957         1290    WhatsApp
+      1959         1170     App iOS
+      1763         1065     App iOS
+      1055          705         Web
+      1144          555 App Android
+
+============================================================
+EXERCÍCIO 2: COMPORTAMENTO POR CATEGORIA
+============================================================
+
+→ Performance por Categoria de Cliente (SLA):
+                   tempo_resposta_medio  satisfacao_media  volume_tickets
+categoria_cliente                                                        
+Free                             115.30              4.19             499
+Premium                           18.80              4.74             194
+Standard                          37.77              4.64             298
+
+→ Volume de mensagens por canal:
+canal
+WhatsApp       395
+App iOS        206
+App Android    200
+Web            190
+
+  Canal com maior volume: WhatsApp (395 mensagens)
+
+→ Gráfico salvo: '/home/lg/college/chatbot/ML-CHATBOT-TNX/AULA_09/grafico_satisfacao_categoria.png'
+
+============================================================
+EXERCÍCIO 3: CORRELAÇÕES E HIPÓTESES
+============================================================
+
+→ Matriz de Correlação:
+                    tamanho_msg  tempo_resposta_seg  satisfacao
+tamanho_msg               1.000               0.026      -0.037
+tempo_resposta_seg        0.026               1.000      -0.559
+satisfacao               -0.037              -0.559       1.000
+
+  Correlação tamanho_msg x tempo_resposta_seg: 0.026 → fraca correlação (sem relação significativa)
+
+→ Histograma salvo: '/home/lg/college/chatbot/ML-CHATBOT-TNX/AULA_09/grafico_histograma_tempo_resposta.png'
+  Assimetria (Skewness): 1.542
+  Interpretação: distribuição assimétrica à direita (Skewed Right)
+
+→ Boxplot salvo: '/home/lg/college/chatbot/ML-CHATBOT-TNX/AULA_09/grafico_boxplot_satisfacao_intencao.png'
+
+→ Heatmap salvo: '/home/lg/college/chatbot/ML-CHATBOT-TNX/AULA_09/grafico_heatmap_correlacao.png'
+
+→ Satisfação média e desvio padrão por Intenção:
+                  mean    std
+intencao                     
+Suporte Técnico  4.021  0.781
+Financeiro       4.508  0.540
+Dúvida Produto   4.523  0.546
+Reclamação       4.543  0.580
+Elogio           4.557  0.536
+
+  Intenção com notas mais baixas e mais voláteis: Suporte Técnico
+
+============================================================
+ATIVIDADE 2 CONCLUÍDA! Todos os gráficos foram salvos.
+============================================================
