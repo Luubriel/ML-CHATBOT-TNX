@@ -20,22 +20,23 @@ intencoes = [
 ]
 
 # TODO criar vetorizador
-vetorizador = ___________
+vetorizador = CountVectorizer()
 
 # TODO transformar frases em vetores
-X = ___________
+X = vetorizador.fit_transform(frases)
 
 # TODO treinar modelo Naive Bayes
-modelo = ___________
+modelo = MultinomialNB()
+modelo.fit(X, intencoes)
 
 # TODO pedir frase do usuário
 entrada = input("Digite sua mensagem: ")
 
 # TODO transformar entrada em vetor
-entrada_vetor = ___________
+entrada_vetor = vetorizador.transform([entrada])
 
 # TODO prever intenção
-predicao = ___________
+predicao = modelo.predict(entrada_vetor)
 
 print("Intenção detectada:", predicao[0])
 
