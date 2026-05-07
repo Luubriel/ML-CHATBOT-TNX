@@ -1,0 +1,16 @@
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Banco SQLite (gerado em runtime por criar_banco.py)
+clinica.db
+
+# Saídas do PyInstaller
+build/
+dist/
+*.spec
+
+# IDE
+.vscode/
+.idea/
