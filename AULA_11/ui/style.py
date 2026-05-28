@@ -131,4 +131,26 @@ QStatusBar {{
     background-color: {ACCENT};
     color: {FG_LABEL};
 }}
+
+QTextEdit#ChatArea {{
+    background-color: {ENTRY_BG};
+    border: 1px solid {ACCENT};
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 11pt;
+}}
+
+QPushButton#Chip {{
+    background-color: {ACCENT};
+    color: {FG};
+    border: 1px solid {BTN_PRIMARY};
+    border-radius: 14px;
+    padding: 5px 12px;
+    font-weight: normal;
+    font-size: 9pt;
+}}
+QPushButton#Chip:hover {{
+    background-color: {BTN_PRIMARY};
+    color: white;
+}}
 """

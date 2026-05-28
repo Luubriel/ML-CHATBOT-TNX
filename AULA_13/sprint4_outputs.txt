@@ -1,0 +1,113 @@
+========================================
+EXERCÍCIO 1
+Bot Classificador pronto! Digite sua mensagem (ou 'sair'):
+Você: Oi, tudo bem?
+Bot: Identifiquei que sua intenção é [saudacao]. Como posso ajudar com isso?
+
+Você: Onde está meu pedido
+Bot: Identifiquei que sua intenção é [suporte]. Como posso ajudar com isso?
+
+Você: Que serviço horroroso
+Bot: Identifiquei que sua intenção é [reclamacao]. Como posso ajudar com isso?
+
+Você: sair
+========================================
+EXERCÍCIO 2
+Bot: Olá! Qual é o seu nome?
+Você: Lucas
+Bot: Prazer, Lucas! Em que posso te ajudar hoje?
+
+Você: Gostaria de comprar um produto
+Bot: Olha, Lucas, nosso setor de vendas está com promoções hoje!
+
+Você: Qual o preço?
+Bot: Olha, Lucas, nosso setor de vendas está com promoções hoje!
+
+Você: sair
+========================================
+EXERCÍCIO 3
+Bot de Triagem: Olá! Por favor, informe o problema e o número do seu pedido (Ex: #1234).
+Você: Meu pedido #9876 está atrasado
+Bot: Sucesso! Encontrei o pedido #9876 na sua mensagem. Buscando no sistema...
+
+Você: O pedido 1234 não chegou
+Bot: Não consegui identificar o número do seu pedido. Lembre-se de usar o formato #1234.
+
+Você: Problema no #0001
+Bot: Sucesso! Encontrei o pedido #0001 na sua mensagem. Buscando no sistema...
+
+Você: sair
+========================================
+EXERCÍCIO 4
+Bot de Suporte: Como posso ajudar você hoje?
+Você: Tudo ótimo
+Bot: Certo, entendi. Processando sua solicitação normalmente...
+
+Você: O produto veio quebrado
+Bot: Certo, entendi. Processando sua solicitação normalmente...
+
+Você: Esse serviço é péssimo, ruim demais e horroroso!
+Bot: Detectei insatisfação severa. Protocolo de transbordo ativado. Transferindo para supervisor humano...
+
+========================================
+EXERCÍCIO 5
+Bot FSM: Bem-vindo! Digite 1 para Suporte ou 2 para Financeiro.
+Você: 1
+Bot: Modo [SUPORTE] ativo. Digite '0' para retornar ao menu.
+
+Você: teste no suporte
+Bot: Ainda processando requisições dentro do módulo SUPORTE.
+
+Você: 0
+Bot: Retornando ao [MENU_PRINCIPAL]. Opções: 1-Suporte, 2-Financeiro.
+
+Você: 2
+Bot: Modo [FINANCEIRO] ativo. Digite '0' para retornar ao menu.
+
+Você: sair
+========================================
+EXERCÍCIO 6
+Bot FAQ: Digite sua dúvida sobre nossa operação:
+Você: Quero saber onde está meu pacote
+Bot: Desculpe, não localizei uma resposta exata no FAQ. Pode tentar reformular?
+
+Você: Aceita cartão?
+Bot: Desculpe, não localizei uma resposta exata no FAQ. Pode tentar reformular?
+
+Você: Quero trocar um produto
+Bot: Desculpe, não localizei uma resposta exata no FAQ. Pode tentar reformular?
+
+Você: sair
+========================================
+EXERCÍCIO 7
+Bot CRM: Por favor, informe seu ID de usuário de 4 dígitos para consulta:
+Você: abc
+Bot: Por favor, insira apenas números.
+
+Você: 123
+Bot: Não localizei esse ID na nossa base de logs. Tente outro.
+
+Você: 8270
+Bot: Dados recuperados! Sua última compra foi de R$406.03 e seu nível de satisfação histórico é 2/5.
+
+Você: sair
+========================================
+EXERCÍCIO 8
+Bot Orquestrador: Como posso te ajudar? (Tente falar sobre 'dinheiro' ou 'estorno')
+Você: Quero ver produtos
+Bot: Entendido. Tratando requisição no canal de atendimento comum.
+
+Você: Preciso do meu dinheiro de volta
+Bot: Detectei demanda financeira. Acionando ferramenta -> [API BANCO] Conectando ao gateway de pagamento... Nenhum estorno pendente.
+
+Você: Qual o status do meu estorno?
+Bot: Detectei demanda financeira. Acionando ferramenta -> [API BANCO] Conectando ao gateway de pagamento... Nenhum estorno pendente.
+
+Você: sair
+========================================
+EXERCÍCIO 9
+Gemini Bot Persona: Iniciando conexão com o ecossistema Google AI. Faça sua pergunta técnica:
+Você: O que é um loop for em Python?
+Bot: É o sussurro arcano que percorre cada elo de uma corrente, despertando-o, até que o último brilhe.
+
+Você: sair

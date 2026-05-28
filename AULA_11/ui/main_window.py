@@ -10,6 +10,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from ui.pages.chatbot_page import ChatbotPage
 from ui.pages.exames_page import ExamesPage
 from ui.pages.pacientes_page import PacientesPage
 from ui.pages.predicao_page import PredicaoPage
@@ -48,6 +49,7 @@ class MainWindow(QMainWindow):
             ("👤", "Pacientes"),
             ("🧪", "Tipos de Exame"),
             ("🔬", "Predição IA"),
+            ("🤖", "BiomedBot"),
         ]:
             item = QListWidgetItem(f"  {icon}   {texto}")
             item.setSizeHint(QSize(0, 50))
@@ -68,10 +70,12 @@ class MainWindow(QMainWindow):
         self.page_pacientes = PacientesPage()
         self.page_exames = ExamesPage()
         self.page_predicao = PredicaoPage()
+        self.page_chatbot = ChatbotPage()
 
         self.stack.addWidget(self.page_pacientes)
         self.stack.addWidget(self.page_exames)
         self.stack.addWidget(self.page_predicao)
+        self.stack.addWidget(self.page_chatbot)
         layout.addWidget(self.stack, 1)
 
         # ── Eventos ────────────────────────────────────────────────────────
@@ -81,6 +85,10 @@ class MainWindow(QMainWindow):
         # Quando um novo paciente é cadastrado, recarrega o combo da predição
         self.page_pacientes.paciente_criado.connect(
             lambda _id: self.page_predicao.recarregar_pacientes()
+        )
+        # ...e também o do chatbot
+        self.page_pacientes.paciente_criado.connect(
+            lambda _id: self.page_chatbot.recarregar_pacientes()
         )
 
         # ── Status bar ─────────────────────────────────────────────────────
@@ -98,6 +106,8 @@ class MainWindow(QMainWindow):
             self.page_pacientes.recarregar()
         elif row == 1:
             self.page_exames.recarregar()
+        elif row == 3:
+            self.page_chatbot.recarregar_pacientes()
 
     def _fazer_logout(self) -> None:
         ok = QMessageBox.question(
